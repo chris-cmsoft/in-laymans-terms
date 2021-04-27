@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/", {data:[{articles:[{slug:"cors",description:"Cross-Origin Resource Sharing",title:"CORS",categories:["security","web"],author:{name:"Chris"}}]}],fetch:{},mutations:void 0});
