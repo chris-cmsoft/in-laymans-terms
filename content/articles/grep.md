@@ -13,7 +13,7 @@ Grep is a utility or function used to search for text patterns in files.
 For example if you have a file with a million records of items in a shop,
 you could search that list for a certain item.
 
-```
+```bash
 [open list] | grep "Noodles"
 ```
 
