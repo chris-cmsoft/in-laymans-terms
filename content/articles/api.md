@@ -8,7 +8,7 @@ author:
   name: Chris
 ---
 
-An API (Application Programming Interface) is a components which allows us (humans or even other programs) to communicate computer programs.
+An API (Application Programming Interface) is a component which allows us (humans or even other programs) to communicate with computer programs.
 
 It's how we *Interface* with programs, and programs would be pretty useless if we could not communicate them.
 
