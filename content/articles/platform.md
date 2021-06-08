@@ -17,9 +17,9 @@ without thinking about all of the extra bits like drop-shipping, warehousing, de
 All of the extra bits are taken care of by Amazon. 
 All a seller needs to think about is the product they want to sell. 
 
-A Platform, is essentially Amazon, but for computer programs or software. 
+That's what a platform does for developers. 
 A platform provides software developers a place to put their code and run it, 
-without needing to think about all the underlying bits like networking, servers, monitoring, databases, and so forth.
+without thinking about all the underlying bits like networking, servers, monitoring, and so forth.
 
 For example, if you have a website, and you want the world to see it, 
 you can use Cloud Hosting to publish your website and point a [domain](/blog/domain) name at it. 
