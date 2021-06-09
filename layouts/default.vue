@@ -82,7 +82,7 @@
               </li>
             </ul>
             <div class="flex mx-auto text-white text-center">
-              Copyright Business Name © 2021
+              Copyright InLaymansTerms.io © 2021
             </div>
           </div>
         </footer>

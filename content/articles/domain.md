@@ -1,6 +1,6 @@
 ---
 title: Domain
-description: A Domain is the "address" of your server
+description: A Domain is the "address" of your software
 categories:
  - api
  - web
@@ -8,7 +8,7 @@ author:
   name: Chris
 ---
 
-A Domain name is a human-readable address for website or api, like [example.com](https://example.com).
+A Domain name is a human-readable address for software, like [example.com](https://example.com).
 In this case example.com is your domain name.
 
 Websites or APIs are hosted on some infrastructure (servers),
