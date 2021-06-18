@@ -36,6 +36,9 @@ and exposed it through a public IP or domain name.
 These applications could have multiple parts or pieces (Frontend, Backend, Queue processors),
 each with their own running processes and computing requirements.
 
+![Traditional Server Layout](/content/kubernetes/TraditionalServer.png "Traditional Server Layout")
+
+
 ## Updating a traditional deployment
 
 If you want to update the code of a traditional deployment, 
@@ -44,6 +47,8 @@ update the codebase through Git or another version control system,
 update all of the packages (if interpreted language is used), 
 restart the web server if it has changes, 
 and viola, your application is updated.
+
+![Traditional Server Layout](/content/kubernetes/TraditionalServerUpdating.png "Traditional Server Layout")
 
 ## Scaled traditional deployment
 
@@ -60,6 +65,8 @@ deploy the web server, and start processing extra background jobs and requests.
 We also add a load balancer in front of our servers, 
 so the load is split across all our servers for the API.
 
+![Traditional Server Layout](/content/kubernetes/ScaledTraditionalServer.png "Traditional Server Layout")
+
 ## Updating a scaled traditional deployment 
 
 When we now want to update our application, we need to ssh into each of our servers,
@@ -72,6 +79,8 @@ we need to install new packages, and reboot our servers.
 
 We now have downtime included as well. We have a bit of time during our application updates and server reboots,
 where some of our application is not accessible. 
+
+![Traditional Server Layout](/content/kubernetes/ScaledTraditionalServerUpdating.png "Traditional Server Layout")
 
 ## Zero downtime updates in a scaled traditional deployment
 
@@ -87,6 +96,8 @@ update and reboot it, and then add it back to the load balancer.
 We need to do this for every server, keeping in mind that they might have different components,
 and that each server might need to be treated differently. 
 
+![Traditional Server Layout](/content/kubernetes/ScaledTraditionalServerUpdatingWLB.png "Traditional Server Layout")
+
 ## More applications
 
 As our business keeps growing, we have more and more applications or APIs, or even microservices
@@ -101,13 +112,16 @@ brings downtime for our other applications which reside on the same machine.
 # Containers
 
 So we start packaging all of our applications in [Containers](/blog/container), 
-to more easily manage their dependencies, and more easily update our application code on our servers.
+to more easily manage their dependencies, hide implementation details from the server, 
+and more easily update our applications on our servers.
 
 Instead of heaving to pull code and update packages and restart processes directly on the servers,
 we can build each of these separately, and simply pull the new images onto the servers, update the configs,
 and restart the containers. 
 
 The only time we need to restart the servers, is when we have updates to the servers themselves.
+
+![Traditional Server Layout](/content/kubernetes/ScaledContainers.png "Traditional Server Layout")
 
 ## Updating scaled container deployments
 
@@ -121,11 +135,13 @@ and we need to know the correct command and settings for the specific container.
 
 If containers are sufficiently complex (Volumes, Networks, Port mappings), this process can be quite error prone.
 
+![Traditional Server Layout](/content/kubernetes/ScaledContainers.png "Traditional Server Layout")
+
 ## Declarative configuration
 
 To solve the error prone problem we have when updating containers, we use a method called declarative config.
 
-Declarative configuration is where we specify all of the settings for the container, 
+Declarative configuration is where we specify all of the settings for the containers 
 in a file. Usually this is a json or yaml file.
 
 In this file, we can specify all of the volume mounts, networks, ports, images etc. 
@@ -133,6 +149,8 @@ In this file, we can specify all of the volume mounts, networks, ports, images e
 We can then use this file to keep our settings in, and update it before we run our new application.
 
 This helps us avoid errors, as well as make it easy to review changes when we update the fie for new changes.
+
+![Traditional Server Layout](/content/kubernetes/ScaledContainersDeclarative.png "Traditional Server Layout")
 
 # Orchestration
 
@@ -156,6 +174,8 @@ to a new server, or to the servers which are all still healthy.
 
 All of this takes a lot of manual effort.
 
+![Traditional Server Layout](/content/kubernetes/ScaledContainersDynamicOutage.png "Traditional Server Layout")
+
 ## Networking for dynamic changes
 
 When we start moving applications around for different reasons, 
@@ -170,12 +190,18 @@ as well as add and remove any applications which are no longer there or availabl
 
 This becomes a very big manual effort when you consider adding more automated checks or monitoring.
 
+Usually this will happen through some scripting which automatically gets triggered.
+
+![Traditional Server Layout](/content/kubernetes/ScaledContainersDynamicScripts.png "Traditional Server Layout")
+
 # Kubernetes
 
 This is where an orchestration tool like Kubernetes steps in.
 
 Kubernetes is a tool, which allows us to update containers using an API, and declarative files,
 and manage all our applications much more simply.
+
+![Traditional Server Layout](/content/kubernetes/Kubernetes.png "Traditional Server Layout")
 
 ## Containers 
 
@@ -239,6 +265,19 @@ by simply updating how many replicas you would like.
 Kubernetes then takes care of adding more containers on your servers, 
 or removing some of them if you've scaled down. 
 
+# Kubernetes explained
+
+After reading all of this, the term Container Orchestrator should make a lot more sense.
+
+Kubernetes is exactly that. It is a Container Orchestrator. 
+It orchestrates containers onto many servers, taking into account networking, capacity, health of applications etc.
+
+It takes the manual labor out of managing containers. It makes it easier to deploy your containers, 
+without having to spend too much time administering the servers on which they run, or worrying about downtime,
+or Rolling Updates.
+
+![Traditional Server Layout](/content/kubernetes/KubernetesDeclarative.png "Traditional Server Layout")
+
 # Misconceptions
 
 ## Kubernetes handles incoming traffic 
@@ -249,3 +288,47 @@ that Kubernetes handles traffic which is destined for our applications.
 This is not true. It uses Linux tools to direct traffic, but if our Kubernetes servers go down,
 and your workload servers stay up, your application will continue to work,
 but you will no longer be able to make updates to your application.
+
+## Kubernetes will make your applications better
+
+No. Kubernetes in and of itself, will do nothing to improve your applications.
+
+It will however make it easier to update and roll out changes, 
+which in turn frees up your time, so you can work on improving your application
+
+## Kubernetes will make your application more secure
+
+No. Kubernetes by itself will do nothing to improve the security of your application,
+and will arguably make your infrastructure less secure if not setup correctly.
+
+Kubernetes runs containers. Containers have many CVEs still popping up today. 
+VMs are a long established technology, and by default, probably more secure. 
+
+If you do however make an active effort to understand the fundamentals of container security,
+and make sure to setup your Kubernetes clusters correctly with the correct security parameters,
+you could very well speed up your Software Delivery process, and keep things secure at the same time.
+
+## Kubernetes will allow my application to scale better
+
+No. If your application was not able to scale before Kubernetes, it will not scale after Kubernetes. 
+
+If however, your application could scale before, but it was a big effort to scale it,
+Kubernetes can help you to more easily scale it, and even do it automatically if necessary.
+
+If your scaling problems lie in your integration points like your database or upstream APIs,
+your time might be better spent solving those issues first, before trying out Kubernetes
+for it's scaling capabilities. 
+
+## Kubernetes is easy
+
+Definitely not. Kubernetes is more than a technology when you start considering it for your business.
+
+It requires a big shift in culture and the most effort spent will be on the adoption of it,
+rather than running it. 
+
+You could make many many mistakes along the way, which will require a very involved effort,
+and it is not a silver bullet to your organisational problems. 
+
+# Credits
+
+<div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
