@@ -4,8 +4,8 @@ description: Grep is a utility or function used to search for text patterns in f
 categories:
  - command-line
  - linux
-author:
-  name: Chris
+author:  
+  slug: chris
 ---
 
 Grep is a utility or function used to search for text patterns in files.

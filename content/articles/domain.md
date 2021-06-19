@@ -4,8 +4,8 @@ description: A Domain is the "address" of your software
 categories:
  - api
  - web
-author:
-  name: Chris
+author:  
+  slug: chris
 ---
 
 A Domain name is a human-readable address for software, like [example.com](https://example.com).

@@ -5,8 +5,8 @@ alt: CORS or Cross-Origin Resource Sharing explained
 categories:
  - security
  - web
-author:
-  name: Chris
+author:  
+  slug: chris
 ---
 
 Cross-Origin resource sharing is the act of calling an API from a browser, 

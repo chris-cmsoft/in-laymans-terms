@@ -4,8 +4,8 @@ description: A Content Delivery Network (CDN) is a mechanism of spreading digita
 categories:
  - api
  - web
-author:
-  name: Chris
+author:  
+  slug: chris
 ---
 
 A CDN (Content Delivery Network) is a mechanism used to spread content (videos, images, code etc.) across the globe,

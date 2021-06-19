@@ -4,8 +4,8 @@ description: A Platform is a suite of technologies, and tools provided to develo
 categories:
  - api
  - web
-author:
-  name: Chris
+author:  
+  slug: chris
 ---
 
 A platform is at its core, a suite of technologies and tools provided to developers to deploy their applications on, 

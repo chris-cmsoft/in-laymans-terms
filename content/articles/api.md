@@ -4,8 +4,8 @@ description: An API is how humans or programs talk to other programs
 categories:
  - api
  - web
-author:
-  name: Chris
+author:  
+  slug: chris
 ---
 
 An API (Application Programming Interface) is a component which allows us (humans or even other programs) to communicate with computer programs.

@@ -3,8 +3,8 @@ title: Containers
 description: Containers (often called Docker containers) are lightweight application bundles
 categories:
  - containers
-author:
-  name: Chris
+author:  
+  slug: chris
 ---
 
 Containers are essentially tar archives containing an application, 

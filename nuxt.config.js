@@ -70,7 +70,7 @@ export default {
 
   // Content module configuration: https://go.nuxtjs.dev/config-content
   content: {
-    nestedProperties: ['author.name']
+    nestedProperties: ['author.slug']
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
