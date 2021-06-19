@@ -43,7 +43,7 @@
     @apply px-4
   }
   .toc3 {
-    @apply pl-8
+    @apply pl-8 pr-4
   }
 }
 </style>

@@ -14,7 +14,7 @@
       const author = await $content('authors').where({ slug: article.author.slug }).fetch()
 
       const [prev, next] = await $content('articles')
-        .only(['title', 'slug'])
+        .only(['title', 'description', 'slug'])
         .sortBy('createdAt', 'asc')
         .surround(params.slug)
         .fetch()
@@ -103,7 +103,7 @@
           <author :author="author"/>
         </div>
         <hr>
-        <div class="w-full">
+        <div class="w-full mb-12 mt-12">
           <prev-next :prev="prev" :next="next"/>
         </div>
       </div>
