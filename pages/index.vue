@@ -13,7 +13,7 @@
         <div class="flex flex-wrap -m-4">
           <div v-for="article of articles" :key="article.slug" class="xl:w-1/3 md:w-1/2 p-4">
             <NuxtLink :to="{ name: 'blog-slug', params: { slug: article.slug } }">
-              <div class="border border-gray-300 p-6 rounded-lg">
+              <div class="p-6 rounded-lg bg-white shadow-md">
                 <h2 class="text-lg  font-medium title-font mb-2">
                   {{ article.title }}
                 </h2>
