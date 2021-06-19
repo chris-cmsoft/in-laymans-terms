@@ -5,7 +5,7 @@
 </script>
 
 <template>
-  <NuxtLink :to="{ name: 'blog-slug', params: { slug: article.slug } }" class="p-6 rounded-lg bg-white shadow-md hover:shadow-lg transition-shadow duration-75 items-start">
+  <NuxtLink :to="{ name: 'blog-slug', params: { slug: article.slug } }" class="block p-6 rounded-lg bg-white shadow-md hover:shadow-lg transition-shadow duration-75 items-start">
     <div>
       <h2 class="text-lg  font-medium title-font mb-2">
         {{ article.title }}
