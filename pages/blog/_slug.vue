@@ -1,5 +1,13 @@
 <script>
   export default {
+    filters: {
+      trim (value) {
+        if (!value) {
+          return ''
+        }
+        return value.trim()
+      }
+    },
     async asyncData ({ $content, params }) {
       const article = await $content('articles', params.slug).fetch()
 
@@ -75,12 +83,8 @@
     <article class="blog-content w-2/4 pt-12">
       <div class="">
         <div class="w-full mb-12">
-          <h1 class="mb-4">
-            {{ article.title }}
-          </h1>
-          <p class="lg:w-1/2 w-full">
-            {{ article.description }}
-          </p>
+          <h1 class="mb-4">{{ article.title }}</h1>
+          <p class="w-full">{{ article.description }}</p>
           <!--        <div class="mt-2 leading-none w-full">-->
           <!--          <span v-for="category of article.categories" :key="category" class="mr-3 inline-flex items-center leading-none text-sm  py-1">-->
           <!--            <svg viewBox="0 0 512 512" class="fill-current w-5 h-5 mr-2 text-blue-500" xmlns="http://www.w3.org/2000/svg">-->
