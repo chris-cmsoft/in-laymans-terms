@@ -18,6 +18,34 @@
         next
       }
     },
+    data () {
+      return {
+        currentlyActiveToc: '',
+        observer: null,
+        observerOptions: {
+          root: this.$refs.nuxtContent,
+          threshold: 0
+        }
+      }
+    },
+    mounted () {
+      this.observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          const id = entry.target.getAttribute('id')
+          if (entry.isIntersecting) {
+            this.currentlyActiveToc = id
+          }
+        })
+      }, this.observerOptions)
+
+      // Track all sections that have an `id` applied
+      document.querySelectorAll('.nuxt-content h2[id], .nuxt-content h3[id]').forEach((section) => {
+        this.observer.observe(section)
+      })
+    },
+    beforeDestroy () {
+      this.observer.disconnect()
+    },
     methods: {
       formatDate (date) {
         const options = {
@@ -26,18 +54,26 @@
           day: 'numeric'
         }
         return new Date(date).toLocaleDateString('en', options)
+      },
+      updateActiveToc (tocId) {
+        console.log('Updated to ', tocId)
+        this.currentlyActiveToc = tocId
       }
     }
   }
 </script>
 
 <template>
-  <div>
-    <article class="blog-content">
-  <!--    <div class="table-of-contents w-1/4">-->
-  <!--      <table-of-contents :toc="article.toc"></table-of-contents>-->
-  <!--    </div>-->
-      <div class="w-2/4 mx-auto px-5 py-24">
+  <div class="flex pt-12">
+    <aside class="w-1/4 px-6">
+      <table-of-contents
+        v-on:update-active-toc="updateActiveToc"
+        :active-toc="currentlyActiveToc"
+        :toc="article.toc"
+      ></table-of-contents>
+    </aside>
+    <article class="blog-content w-2/4 pt-12">
+      <div class="">
         <div class="w-full mb-12">
           <h1 class="mb-4">
             {{ article.title }}

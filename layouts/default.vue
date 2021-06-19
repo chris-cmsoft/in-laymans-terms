@@ -20,7 +20,7 @@
         </nav>
       </header>
 
-      <section class="mt-3 min-h-screen">
+      <section class="min-h-screen">
         <Nuxt />
       </section>
 
@@ -90,16 +90,3 @@
     </div>
   </div>
 </template>
-
-<style>
-  nav .nuxt-link-active :after {
-    border-bottom: 1px solid grey;
-  }
-  .nuxt-link-active:after {
-    content: "";
-    display: block;
-    background-color: #35495e;
-    height: 2px;
-    transform: translateY(17px)
-  }
-</style>
