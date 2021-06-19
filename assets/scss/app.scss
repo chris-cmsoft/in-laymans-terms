@@ -1,0 +1,61 @@
+@import '~tocbot/src/scss/tocbot';
+
+html, body {
+  @apply bg-gray-50
+}
+
+h1 {
+  @apply text-7xl font-light
+}
+
+h2 {
+  @apply text-5xl font-light
+}
+
+h3 {
+  @apply text-3xl font-light
+}
+
+h4 {
+  @apply text-2xl
+}
+
+h5 {
+  @apply text-xl
+}
+
+p {
+  @apply text-xl font-extralight
+}
+
+hr {
+  @apply mb-6 mt-12
+}
+
+blockquote {
+  p {
+    @apply text-lg italic
+  }
+  @apply text-lg italic border-l-4 border-gray-400 px-4 py-2 bg-gray-100
+}
+
+.nuxt-content {
+  img {
+    @apply mt-8 mb-6
+  }
+  h2 {
+    @apply mb-8 mt-8
+  }
+  h3 {
+    @apply mb-4 mt-6
+  }
+  p {
+    @apply mb-4
+  }
+  a {
+    @apply text-blue-700 font-normal
+  }
+  blockquote {
+    @apply mt-4
+  }
+}

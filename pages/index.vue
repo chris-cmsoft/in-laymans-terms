@@ -51,9 +51,3 @@
     }
   }
 </script>
-
-<style>
-  h1 {
-    @apply text-4xl
-  }
-</style>

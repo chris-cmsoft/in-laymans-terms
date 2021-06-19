@@ -1,0 +1,9 @@
+- slug: chris
+  name: Chris
+  bio: |
+    Hi. I'm Chris.
+    I build things in the Cloud Native world, and help businesses better understand the landscape they are getting into.
+  avatarUrl: /authors/Chris.jpg
+  links:
+    twitter: https://twitter.com/lone_developer
+    github: https://github.com/chris-cmsoft
