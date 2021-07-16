@@ -37,6 +37,14 @@
       }
     },
     mounted () {
+      this.$gtag.pageview({
+        page_path: this.$route.fullPath,
+        page_title: this.$route.params.slug
+      })
+      this.$gtag.screenview({
+        app_name: 'In Laymans Terms',
+        screen_name: `Blog Page - ${this.$route.params.slug}`
+      })
       this.observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           const id = entry.target.getAttribute('id')
@@ -98,18 +106,18 @@
           <!--        </div>-->
         </div>
         <div class="w-full">
-          <nuxt-content :document="article" />
+          <nuxt-content :document="article"/>
         </div>
         <hr>
         <h2 class="mb-8 mt-8">
           Author
         </h2>
         <div class="w-full">
-          <author :author="author" />
+          <author :author="author"/>
         </div>
         <hr>
         <div class="w-full mb-12 mt-12">
-          <prev-next :prev="prev" :next="next" />
+          <prev-next :prev="prev" :next="next"/>
         </div>
       </div>
     </article>

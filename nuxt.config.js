@@ -1,3 +1,5 @@
+import getRoutes from './utils/getRoutes'
+
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
@@ -65,7 +67,8 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
-    '@nuxtjs/robots'
+    '@nuxtjs/robots',
+    '@nuxtjs/sitemap'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -82,5 +85,11 @@ export default {
     UserAgent: '*',
     Allow: '/',
     Sitemap: 'https://inlaymansterms.io/sitemap.xml'
+  },
+  sitemap: {
+    hostname: 'https://inlaymansterms.io',
+    routes () {
+      return getRoutes()
+    }
   }
 }
