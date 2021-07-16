@@ -5,14 +5,14 @@
         <nav class="flex justify-between w-3/5  mx-auto l p-4 container mx-auto">
           <a href="/"><span class="text-xl">InLaymansTerms.io</span></a>
           <div class="md:items-center md:w-auto flex">
-<!--            <div class="md:flex hidden">-->
-<!--              <NuxtLink class="mr-4" :to="`/blog/category/security`">-->
-<!--                Security-->
-<!--              </NuxtLink>-->
-<!--              <NuxtLink class="mr-4" :to="`/blog/category/web`">-->
-<!--                Web-->
-<!--              </NuxtLink>-->
-<!--            </div>-->
+            <!--            <div class="md:flex hidden">-->
+            <!--              <NuxtLink class="mr-4" :to="`/blog/category/security`">-->
+            <!--                Security-->
+            <!--              </NuxtLink>-->
+            <!--              <NuxtLink class="mr-4" :to="`/blog/category/web`">-->
+            <!--                Web-->
+            <!--              </NuxtLink>-->
+            <!--            </div>-->
             <div class="flex text-sm">
               <AppSearchInput />
             </div>
