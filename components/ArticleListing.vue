@@ -2,7 +2,7 @@
   export default {
     props: {
       article: {
-        type: String,
+        type: Object,
         required: true
       }
     }
