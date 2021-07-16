@@ -37,7 +37,7 @@ simply because of sheer distance between them and the server.
 When we talk slower we mean by up to 1-2 seconds slower. 
 
 That doesn't sound too big, but imagine playing a game, shooting at someone,
-and missing because it took your "shoot" 1-2 seconds to reach the server.
+and missing because it took your shot 1-2 seconds to reach the server.
 
 ## Bringing the servers closer to the users
 
@@ -49,13 +49,19 @@ connect to that server.
 They can now also have faster connection speeds to your servers.
 
 We call these extra servers in remote locations "Edge" servers, 
-As they lie on the far edges of where you API is provided.
+as they lie on the far edges of where your API is provided.
+
+These edge servers don't have to be in different countries, 
+but can also mean simply closer to the users or end devices, 
+such as mobile towers. 
+
+Providing compute closer in a smaller data centre, in-house server, or device can all be considered edge devices. 
 
 ## Use cases
 
 There are many use cases where this is very useful, such as gaming, IOT (Internet of Things) etc.  
 
-Charlotte has mentioned quite a few in her definition as well. 
+Charlotte has mentioned quite a few in her definition as well.
 
 ## Inherit problems 
 
@@ -67,9 +73,9 @@ but it does have many problems for which there aren't always one stop solutions
 Making sure that data stays consistent when you have many servers, but one source-of-truth,
 is a difficult problem to solve, especially when looking at real-time connected use cases like gaming.
 
-When someone in India "shoots" at someone else. The Indian edge server will know about it, before the US server does.
+When a player in India shoots at another play in the US, the Indian edge server will know about it, before the US server does.
 
-And if someone in the US "shoots" at someone else in India, the US server will know before the Indian server does. 
+And when a player in the US shoots at another player in India, the US server will know before the Indian server does. 
 
 How do we know who gets shots first, and whether at the time of shooting, the person hasn't already moved, 
 and the server just doesn't know yet.
