@@ -67,6 +67,7 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
+    '@nuxtjs/robots',
     '@nuxtjs/sitemap'
   ],
 
@@ -80,6 +81,11 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+  robots: {
+    UserAgent: '*',
+    Allow: '/',
+    Sitemap: 'https://inlaymansterms.io/sitemap.xml'
+  },
   sitemap: {
     hostname: 'https://inlaymansterms.io',
     routes () {
