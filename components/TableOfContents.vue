@@ -1,6 +1,15 @@
 <script>
   export default {
-    props: ['toc', 'activeToc'],
+    props: {
+      toc: {
+        type: String,
+        required: true
+      },
+      activeToc: {
+        type: String,
+        required: true
+      }
+    },
     async asyncData ({ $content, params }) {
       const article = await $content('articles', params.slug)
         .fetch()
@@ -31,7 +40,9 @@
         }"
         @click.prevent="tableOfContentsHeadingClick(tocItem)"
       >
-        <NuxtLink class="block" :to="`#${tocItem.id}`">{{ tocItem.text }}</NuxtLink>
+        <NuxtLink class="block" :to="`#${tocItem.id}`">
+          {{ tocItem.text }}
+        </NuxtLink>
       </li>
     </ul>
   </div>

@@ -12,7 +12,7 @@
         </div>
         <div class="flex flex-wrap -m-4">
           <div v-for="article of articles" :key="article.slug" class="xl:w-1/3 md:w-1/2 p-4">
-            <article-listing :article="article"></article-listing>
+            <article-listing :article="article" />
           </div>
         </div>
       </div>
