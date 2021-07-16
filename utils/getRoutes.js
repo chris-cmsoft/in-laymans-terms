@@ -3,6 +3,6 @@ export default async () => {
   const files = await $content({ deep: true }).only(['path']).fetch()
 
   return [
-    ...files.map(file => (file.path === '/index' ? '/' : file.path.replace('articles', 'blog'))),
+    ...files.map(file => (file.path === '/index' ? '/' : file.path.replace('articles', 'blog')))
   ]
-};
+}
