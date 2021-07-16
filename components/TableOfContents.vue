@@ -2,7 +2,7 @@
   export default {
     props: {
       toc: {
-        type: String,
+        type: Array,
         required: true
       },
       activeToc: {
