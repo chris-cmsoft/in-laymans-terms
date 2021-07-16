@@ -50,3 +50,7 @@ jobs:
 
       - name: Run tests 🧪
         run: yarn test
+
+      # Generate preemptively to ensure transpiler works correctly
+      - name: Generate
+        run: yarn generate
