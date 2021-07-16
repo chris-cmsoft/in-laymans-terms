@@ -64,7 +64,6 @@
         return new Date(date).toLocaleDateString('en', options)
       },
       updateActiveToc (tocId) {
-        console.log('Updated to ', tocId)
         this.currentlyActiveToc = tocId
       }
     }
@@ -75,16 +74,20 @@
   <div class="flex pt-12">
     <aside class="w-1/4 px-6">
       <table-of-contents
-        v-on:update-active-toc="updateActiveToc"
         :active-toc="currentlyActiveToc"
         :toc="article.toc"
-      ></table-of-contents>
+        @update-active-toc="updateActiveToc"
+      />
     </aside>
     <article class="blog-content w-2/4 pt-12">
       <div class="">
         <div class="w-full mb-12">
-          <h1 class="mb-4">{{ article.title }}</h1>
-          <p class="w-full">{{ article.description }}</p>
+          <h1 class="mb-4">
+            {{ article.title }}
+          </h1>
+          <p class="w-full">
+            {{ article.description }}
+          </p>
           <!--        <div class="mt-2 leading-none w-full">-->
           <!--          <span v-for="category of article.categories" :key="category" class="mr-3 inline-flex items-center leading-none text-sm  py-1">-->
           <!--            <svg viewBox="0 0 512 512" class="fill-current w-5 h-5 mr-2 text-blue-500" xmlns="http://www.w3.org/2000/svg">-->
@@ -95,16 +98,18 @@
           <!--        </div>-->
         </div>
         <div class="w-full">
-          <nuxt-content :document="article"/>
+          <nuxt-content :document="article" />
         </div>
         <hr>
-        <h2 class="mb-8 mt-8">Author</h2>
+        <h2 class="mb-8 mt-8">
+          Author
+        </h2>
         <div class="w-full">
-          <author :author="author"/>
+          <author :author="author" />
         </div>
         <hr>
         <div class="w-full mb-12 mt-12">
-          <prev-next :prev="prev" :next="next"/>
+          <prev-next :prev="prev" :next="next" />
         </div>
       </div>
     </article>

@@ -7,6 +7,20 @@
         shouldShowSearchResults: false
       }
     },
+    watch: {
+      async searchQuery (searchQuery) {
+        if (!searchQuery) {
+          this.articles = []
+          this.hideSearchResults()
+          return
+        }
+        this.showSearchResults()
+        this.articles = await this.$content('articles')
+          .limit(6)
+          .search(searchQuery)
+          .fetch()
+      }
+    },
     methods: {
       clearSearchQuery () {
         this.searchQuery = ''
@@ -32,20 +46,6 @@
           this.hideSearchResults()
         }, 100)
       }
-    },
-    watch: {
-      async searchQuery (searchQuery) {
-        if (!searchQuery) {
-          this.articles = []
-          this.hideSearchResults()
-          return
-        }
-        this.showSearchResults()
-        this.articles = await this.$content('articles')
-          .limit(6)
-          .search(searchQuery)
-          .fetch()
-      }
     }
   }
 </script>
@@ -58,7 +58,7 @@
       autocomplete="off"
       placeholder="Search Articles"
       class="py-2 px-4 focus:outline-none text-gray-700 w-full rounded-sm"
-      v-on:blur="blurSearchBox"
+      @blur="blurSearchBox"
     >
     <ul
       v-if="articles.length"
