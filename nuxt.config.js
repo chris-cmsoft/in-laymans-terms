@@ -6,7 +6,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'inlamensterms.io',
+    title: 'inlaymansterms.io',
     htmlAttrs: {
       lang: 'en'
     },
