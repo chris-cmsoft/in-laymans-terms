@@ -19,7 +19,7 @@
     "vue-gtag": "^1.16.1"
   },
   "devDependencies": {
-    "@nuxtjs/eslint-config": "^6.0.0",
+    "@nuxtjs/eslint-config": "^7.0.0",
     "@nuxtjs/eslint-module": "^3.0.2",
     "@nuxtjs/robots": "^2.5.0",
     "@nuxtjs/sitemap": "^2.4.0",
@@ -28,7 +28,7 @@
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^27.2.1",
-    "eslint": "^7.32.0",
+    "eslint": "^8.1.0",
     "eslint-plugin-nuxt": "^2.0.0",
     "eslint-plugin-vue": "^7.18.0",
     "fibers": "^5.0.0",
